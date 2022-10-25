@@ -115,6 +115,8 @@ public class CupidSays {
 		panel.add(lblNewLabel_7_2);
 		
 		textField_2 = new JTextField();
+		textField_2.setBackground(new Color(255, 255, 255));
+		textField_2.setEditable(false);
 		textField_2.setBounds(654, 305, 96, 61);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
@@ -125,6 +127,28 @@ public class CupidSays {
 		panel.add(panel_3);
 		
 		JButton btnNewButton = new JButton("SUBMIT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String s1 = textField.getText();
+				String s2 = textField_1.getText();
+				
+				int sum1=0,sum2=0;
+				for(int i=0;i<s1.length();i++){
+					char ch =s1.charAt(i);
+					int ascii=ch;
+					sum1=sum1+ascii;
+				}
+				for(int i=0;i<s2.length();i++){
+					char ch =s2.charAt(i);
+					int ascii=ch;
+					sum2=sum2+ascii;
+				}
+				int total= sum1+sum2;
+				int lovePercentage=total/100;
+				textField_2.setText(Integer.toString(lovePercentage)+"%");
+			
+			}
+		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(112, 141, 129));
 		btnNewButton.setFont(new Font("MS PGothic", Font.BOLD, 20));
